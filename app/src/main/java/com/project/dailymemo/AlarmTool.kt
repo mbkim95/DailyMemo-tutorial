@@ -1,11 +1,15 @@
 package com.project.dailymemo
 
-import android.app.*
+import android.app.AlarmManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import androidx.core.app.NotificationCompat
 import com.project.dailymemo.data.MemoDao
 import io.realm.Realm
 import java.util.*
@@ -54,15 +58,11 @@ class AlarmTool : BroadcastReceiver() {
                     PendingIntent.FLAG_UPDATE_CURRENT
                 )
 
-                val builder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    Notification.Builder(context, "alarm")
-                        .setContentTitle(memoData.title)
-                        .setContentText(memoData.content)
-                        .setContentIntent(pendingIntent)
-                        .setAutoCancel(true)
-                } else {
-                    TODO("VERSION.SDK_INT < O")
-                }
+                val builder = NotificationCompat.Builder(context, "alarm")
+                    .setContentTitle(memoData.title)
+                    .setContentText(memoData.content)
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
 
                 val notificationManager =
                     context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

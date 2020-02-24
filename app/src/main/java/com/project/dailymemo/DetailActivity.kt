@@ -33,9 +33,8 @@ class DetailActivity : AppCompatActivity() {
         }
 
         viewModel = application!!.let {
-            ViewModelProvider(viewModelStore, ViewModelProvider.AndroidViewModelFactory(it)).get(
-                DetailViewModel::class.java
-            )
+            ViewModelProvider(viewModelStore, ViewModelProvider.AndroidViewModelFactory(it))
+                .get(DetailViewModel::class.java)
         }
 
         viewModel!!.let {
