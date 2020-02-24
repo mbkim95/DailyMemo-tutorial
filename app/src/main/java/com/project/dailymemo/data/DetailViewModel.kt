@@ -29,7 +29,7 @@ class DetailViewModel : ViewModel() {
         content.value = memoData.content
     }
 
-    fun addOrUpdate(title: String, content: String) {
+    fun addOrUpdateMemo(title: String, content: String) {
         memoDao.addOrUpdateMemo(memoData, title, content)
     }
 }
