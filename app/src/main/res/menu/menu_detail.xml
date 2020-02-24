@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.project.dailymemo.DetailActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:id="@+id/menu_share"
+        android:icon="@drawable/ic_share"
+        android:title="공유"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_alarm"
+        android:title="알람설정"
         app:showAsAction="never" />
+
 </menu>
