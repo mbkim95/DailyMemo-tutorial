@@ -1,8 +1,11 @@
 package com.project.dailymemo.data
 
+import io.realm.RealmObject
+import io.realm.annotations.PrimaryKey
 import java.util.*
 
-class MemoData(
+open class MemoData(
+    @PrimaryKey
     var id: String = UUID.randomUUID().toString(),
     var createdAt: Date = Date(),
     var title: String = "",
@@ -13,4 +16,4 @@ class MemoData(
     var longitude: Double = 0.0,
     var alarmTime: Date = Date(),
     var weather: String = ""
-)
+): RealmObject()
